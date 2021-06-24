@@ -12,7 +12,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+ 
 Route::get('/', function () {
     return view('welcome');
+}); 
+ 
+Route::get("/greeting", function() {
+	return "Hello World";
 });
+ 
+Route::get("/user", [App\Http\Controllers\UserController::class, 'index']);
+
+Route::get("/user/{id}", [App\Http\Controllers\UserController::class, 'show']);
+
+Route::post("/user", [App\Http\Controllers\UserController::class, 'store']);
+
+Route::patch("/user/{id}", [App\Http\Controllers\UserController::class, 'update']);
+
+Route::delete("/user/{id}", [App\Http\Controllers\UserController::class, 'destroy']);
+
